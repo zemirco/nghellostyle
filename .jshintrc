@@ -1,0 +1,23 @@
+{
+  "globalstrict": true,
+  "globals": {
+    "my": false,
+    "angular": false,
+    "module": false,
+    "exports": false,
+    "require": false,
+    "goog": false,
+    "console": false,
+    "jasmine": false,
+    "describe": false,
+    "it": false,
+    "beforeEach": false,
+    "expect": false,
+    "browser": false,
+    "element": false,
+    "by": false,
+    "$": false,
+    "$$": false,
+    "inject": false
+  }
+}
