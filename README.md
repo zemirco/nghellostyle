@@ -146,6 +146,21 @@ So what's the difference between `@export` and `@expose`?
 - use `@export` for constructor functions
 - use `@expose` for properties inside constructor functions
 
+***Important!***
+
+The [style guide](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
+from Google says that
+
+> if you are using @export for properties, you will need to add the flags:
+
+>  
+```
+--remove_unused_prototype_props_in_externs = false
+--export_local_property_definitions
+```
+
+Both of them didn't work for me because the Closure Compiler threw Errors.
+
 ##### Namespaces
 
 Closure Compiler modularization works very similar to Node.js modules.
@@ -182,8 +197,8 @@ goog.require('my.Ctrl');
  * Module.
  */
 angular.module('app', [])
-.config(function() { /*...*/ })
-.controller('Ctrl', my.Ctrl);
+  .config(function() { /*...*/ })
+  .controller('Ctrl', my.Ctrl);
 ```
 
 No more, what's the difference between
@@ -197,7 +212,7 @@ require submodules and inject them into our main module. However you must use th
 /**
  * Require submodule
  */
-goog.require('my.first');
+goog.require('my.first.module');
 
 /**
  * Main app.
@@ -206,7 +221,7 @@ goog.require('my.first');
  */
 my.app = angular.module('app', [
   'ui.router',
-  my.first.name
+  my.first.module.name
 ])
 ```
 
@@ -268,7 +283,7 @@ It is easy to see where things come from.
 
 #### Everything is a JavaScript class
 
-With `prototype` and `new`.
+Yes, with `prototype` and `new`.
 
 - Controller
 
@@ -312,6 +327,78 @@ With `prototype` and `new`.
 
   angular.module('app', [])
     .service('version', Version);
+  ```
+
+- Directive
+
+  ```js
+  /**
+   * @constructor
+   */
+  var Directive = function(version) {
+    this.version = version;
+    this.link = this.link.bind(this);
+
+    this.scope;
+    this.elem;
+    this.attrs;
+  };
+
+  /**
+   * Version directive factory. Entry point and used in `module.directive`.
+   */
+  Directive.factory = function(version) {
+    var dir = new Directive(version);
+    return {
+      link: dir.link
+    };
+  };
+
+  /**
+   * Linking function.
+   */
+  Directive.prototype.link = function(scope, elem, attrs) {
+    this.scope = scope;
+    this.elem = elem;
+    this.attrs = attrs;
+    this.elem.text(this.version.get());
+  };
+
+  angular.module('app', [])
+    .directive('version', Directive.factory);
+  ```
+
+- Filter
+
+  ```js
+  /**
+   * @constructor
+   */
+  Filter = function() {
+    this.checkmark = '\u2714';
+    this.cross = '\u2718';
+    this.convert = this.convert.bind(this);
+  };
+
+  /**
+   * Check filter factory. Entry point and used in `module.filter`.
+   *
+   * @return {function}
+   */
+  Filter.factory = function() {
+    var filter = new Filter();
+    return filter.convert;
+  };
+
+  /**
+   * Actual filter function.
+   */
+  Filter.prototype.convert = function(input) {
+    return input ? this.checkmark : this.cross;
+  };
+
+  angular.module('app', [])
+    .filter('check', Filter.factory);
   ```
 
 #### Angular UI Router
@@ -412,7 +499,9 @@ test/
       ...
 ```
 
-***Important!*** `closure-library/` (71,9 MB) and `compiler.jar` (6,8 MB)
+***Important!***
+
+`closure-library/` (71,9 MB) and `compiler.jar` (6,8 MB)
 are not in this repo. You have to download them manually and place them inside
 the `closure/` directory.
 
@@ -430,16 +519,26 @@ They have their own `config()` function and they all define their own routes.
 
 ```js
 /**
- * first module.
+ * Create namespace.
  */
-var first = angular.module('first', [
+goog.provide('my.first.module');
+
+/**
+ * Require controller.
+ */
+goog.require('my.first.Ctrl');
+
+/**
+ * First module.
+ */
+my.first.module = angular.module('first', [
   'ui.router'
 ]);
 
 /**
- * configuration function.
+ * Configuration function.
  */
-var configuration = function($stateProvider) {
+my.first.module.configuration = function($stateProvider) {
 
   $stateProvider.state('first', {
     url: '/first',
@@ -450,13 +549,29 @@ var configuration = function($stateProvider) {
 };
 
 /**
- * init module.
+ * Init first module.
  */
-first
-.config(configuration);
+my.first.module
+  .config(my.first.module.configuration)
+  .controller('FirstCtrl', my.first.Ctrl);
 ```
 
 Each state has its own controller. They live in the `xyz-controller.js` files.
+
+```js
+/**
+ * Create namespace.
+ */
+goog.provide('my.first.Ctrl');
+
+/**
+ * First controller.
+ */
+my.first.Ctrl = function() {
+  // ...
+};
+
+```
 
 Each state creates an own namespace. Inside the main `app.js` we use `goog.require()`
 to pull in all submodules and inject them into our main app.
@@ -600,3 +715,7 @@ creates `app.min.js` in `app/js/`.
 ## License
 
 MIT
+
+## Plea
+
+@google why you not making your `nghellostyle` public?
