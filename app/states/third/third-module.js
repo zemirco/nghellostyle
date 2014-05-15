@@ -3,18 +3,18 @@
 /**
  * Create namespace for `app.js`.
  */
-goog.provide('my.third');
+goog.provide('my.third.module');
 
 /**
  * Require child states.
  */
-goog.require('my.third_one');
-goog.require('my.third_two');
+goog.require('my.third.one.module');
+goog.require('my.third.two.module');
 
 /**
  * Require controller.
  */
-goog.require('my.third_Ctrl');
+goog.require('my.third.Ctrl');
 
 
 
@@ -26,10 +26,10 @@ goog.require('my.third_Ctrl');
  *
  * @return {angular.Module}
  */
-my.third = angular.module('third', [
+my.third.module = angular.module('third', [
   'ui.router',
-  my.third_one.name,
-  my.third_two.name
+  my.third.one.module.name,
+  my.third.two.module.name
 ]);
 
 
@@ -37,17 +37,12 @@ my.third = angular.module('third', [
 /**
  * Configuration function.
  *
- * Important! Do not call this function `my.third.config`. It would collide
- * with the AngularJS `config()` function. The init part at the end of this file
- * would look like `my.blabla.config(my.blabla.config())` which obviously would
- * not work.
- *
  * `templateUrl` path must be relative to `index.html`.
  *
  * @param {ui.router.$stateProvider} $stateProvider
  * @ngInject
  */
-my.third.configuration = function($stateProvider) {
+my.third.module.configuration = function($stateProvider) {
 
   $stateProvider.state('third', {
     url: '/third',
@@ -62,6 +57,6 @@ my.third.configuration = function($stateProvider) {
 /**
  * Init third module.
  */
-my.third
-.config(my.third.configuration)
-.controller('ThirdCtrl', my.third_Ctrl);
+my.third.module
+.config(my.third.module.configuration)
+.controller('ThirdCtrl', my.third.Ctrl);

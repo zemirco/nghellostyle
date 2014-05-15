@@ -1,6 +1,6 @@
 'use strict';
 
-goog.provide('my.service.version');
+goog.provide('my.version.Service');
 
 /**
  * Version service. In the angular-seed this is a 'value service' but I wanted
@@ -9,7 +9,7 @@ goog.provide('my.service.version');
  *
  * @constructor
  */
-my.service.version = function() {
+my.version.Service = function() {
   this.version = '0.0.1';
 };
 
@@ -19,6 +19,6 @@ my.service.version = function() {
  * @export
  * @return {string}
  */
-my.service.version.prototype.get = function() {
+my.version.Service.prototype.get = function() {
   return this.version;
 };

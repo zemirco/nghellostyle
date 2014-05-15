@@ -3,12 +3,12 @@
 /**
  * Create namespace.
  */
-goog.provide('my.second');
+goog.provide('my.second.module');
 
 /**
  * Require controller.
  */
-goog.require('my.second_Ctrl');
+goog.require('my.second.Ctrl');
 
 
 
@@ -17,7 +17,7 @@ goog.require('my.second_Ctrl');
  *
  * @return {angular.Module}
  */
-my.second = angular.module('second', [
+my.second.module = angular.module('second', [
   'ui.router'
 ]);
 
@@ -36,7 +36,7 @@ my.second = angular.module('second', [
  * @param {ui.router.$stateProvider} $stateProvider
  * @ngInject
  */
-my.second.configuration = function($stateProvider) {
+my.second.module.configuration = function($stateProvider) {
 
   $stateProvider.state('second', {
     url: '/second',
@@ -51,6 +51,6 @@ my.second.configuration = function($stateProvider) {
 /**
  * Init second module.
  */
-my.second
-.config(my.second.configuration)
-.controller('SecondCtrl', my.second_Ctrl);
+my.second.module
+.config(my.second.module.configuration)
+.controller('SecondCtrl', my.second.Ctrl);

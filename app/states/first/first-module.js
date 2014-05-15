@@ -3,12 +3,12 @@
 /**
  * Create namespace.
  */
-goog.provide('my.first');
+goog.provide('my.first.module');
 
 /**
  * Require controller.
  */
-goog.require('my.first_Ctrl');
+goog.require('my.first.Ctrl');
 
 
 
@@ -17,7 +17,7 @@ goog.require('my.first_Ctrl');
  *
  * @return {angular.Module}
  */
-my.first = angular.module('first', [
+my.first.module = angular.module('first', [
   'ui.router'
 ]);
 
@@ -26,17 +26,12 @@ my.first = angular.module('first', [
 /**
  * Configuration function.
  *
- * Important! Do not call this function `my.first.config`. It would collide
- * with the AngularJS `config()` function. The init part at the end of this file
- * would look like `my.blabla.config(my.blabla.config())` which obviously would
- * not work.
- *
  * `templateUrl` path must be relative to `index.html`.
  *
  * @param {ui.router.$stateProvider} $stateProvider
  * @ngInject
  */
-my.first.configuration = function($stateProvider) {
+my.first.module.configuration = function($stateProvider) {
 
   $stateProvider.state('first', {
     url: '/first',
@@ -51,6 +46,6 @@ my.first.configuration = function($stateProvider) {
 /**
  * Init first module.
  */
-my.first
-.config(my.first.configuration)
-.controller('FirstCtrl', my.first_Ctrl);
+my.first.module
+.config(my.first.module.configuration)
+.controller('FirstCtrl', my.first.Ctrl);

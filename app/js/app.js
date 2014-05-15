@@ -1,33 +1,27 @@
 'use strict';
 
-// require state modules
-goog.require('my.first');
-goog.require('my.second');
-goog.require('my.third');
+goog.require('my.first.module');
+goog.require('my.second.module');
+goog.require('my.third.module');
 
-// require services
-goog.require('my.service.version');
-
-// require directives
-goog.require('my.directive.version');
-
-// require filters
-goog.require('my.filter.check');
+goog.require('my.version.Directive.factory');
+goog.require('my.version.Service');
+goog.require('my.check.Filter.factory');
 
 /**
  * Main app.
  */
-my.app = angular.module('app', [
+angular.module('app', [
   'ui.router',
-  my.first.name,
-  my.second.name,
-  // my.third includes child states `third.one` and `third.two`
-  my.third.name
+  my.first.module.name,
+  my.second.module.name,
+  // my.third.module includes child states `third.one` and `third.two`
+  my.third.module.name
 ])
 .config(config)
-.service('version', my.service.version)
-.directive('version', my.directive.version)
-.filter('check', my.filter.check);
+.directive('version', my.version.Directive.factory)
+.service('version', my.version.Service)
+.filter('check', my.check.Filter.factory);
 
 /**
  * Configuration function.

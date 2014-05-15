@@ -3,7 +3,7 @@
 /**
  * Create namespace.
  */
-goog.provide('my.second_Ctrl');
+goog.provide('my.second.Ctrl');
 
 
 
@@ -25,7 +25,7 @@ goog.provide('my.second_Ctrl');
  * @export
  * @ngInject
  */
-my.second_Ctrl = function($window) {
+my.second.Ctrl = function($window) {
 
   /**
    * `text` cannot by used in template because it is not exposed.
@@ -54,7 +54,7 @@ my.second_Ctrl = function($window) {
 
 
 /**
- * Show an alert window with text from `info` model.
+ * Show an alert window with text from `text` model.
  * Method has to be exported to be used inside a template.
  *
  * @example
@@ -65,7 +65,7 @@ my.second_Ctrl = function($window) {
  *
  * @export
  */
-my.second_Ctrl.prototype.say = function() {
+my.second.Ctrl.prototype.say = function() {
   var $window = this.$window;
   $window.alert(this.text);
 };

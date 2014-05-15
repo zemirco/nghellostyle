@@ -3,7 +3,7 @@
 /**
  * Create namespace.
  */
-goog.provide('my.third_one_Ctrl');
+goog.provide('my.third.one.Ctrl');
 
 
 
@@ -13,7 +13,7 @@ goog.provide('my.third_one_Ctrl');
  * @constructor
  * @export
  */
-my.third_one_Ctrl = function() {
+my.third.one.Ctrl = function() {
 
   /**
    * @type {String}

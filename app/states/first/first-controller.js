@@ -1,18 +1,13 @@
 'use strict';
 
-/**
- * Create namespace.
- */
-goog.provide('my.first_Ctrl');
-
-
+goog.provide('my.first.Ctrl');
 
 /**
  * First controller.
  *
  * @constructor
  */
-my.first_Ctrl = function() {
+my.first.Ctrl = function() {
 
   /**
    * @type {Array}

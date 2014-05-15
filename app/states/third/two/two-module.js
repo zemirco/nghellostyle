@@ -3,12 +3,12 @@
 /**
  * Create namespace.
  */
-goog.provide('my.third_two');
+goog.provide('my.third.two.module');
 
 /**
  * Require controller.
  */
-goog.require('my.third_two_Ctrl');
+goog.require('my.third.two.Ctrl');
 
 
 
@@ -17,7 +17,7 @@ goog.require('my.third_two_Ctrl');
  *
  * @return {angular.Module}
  */
-my.third_two = angular.module('third.two', [
+my.third.two.module = angular.module('third.two', [
   'ui.router'
 ]);
 
@@ -36,7 +36,7 @@ my.third_two = angular.module('third.two', [
  * @param {ui.router.$stateProvider} $stateProvider
  * @ngInject
  */
-my.third_two.configuration = function($stateProvider) {
+my.third.two.module.configuration = function($stateProvider) {
 
   $stateProvider.state('third.two', {
     url: '/two',
@@ -51,6 +51,6 @@ my.third_two.configuration = function($stateProvider) {
 /**
  * Init third.two module.
  */
-my.third_two
-.config(my.third_two.configuration)
-.controller('ThirdTwoCtrl', my.third_two_Ctrl);
+my.third.two.module
+.config(my.third.two.module.configuration)
+.controller('ThirdTwoCtrl', my.third.two.Ctrl);

@@ -3,12 +3,12 @@
 /**
  * Create namespace.
  */
-goog.provide('my.third_one');
+goog.provide('my.third.one.module');
 
 /**
  * Require controller.
  */
-goog.require('my.third_one_Ctrl');
+goog.require('my.third.one.Ctrl');
 
 
 
@@ -17,7 +17,7 @@ goog.require('my.third_one_Ctrl');
  *
  * @return {angular.Module}
  */
-my.third_one = angular.module('third.one', [
+my.third.one.module = angular.module('third.one', [
   'ui.router'
 ]);
 
@@ -36,7 +36,7 @@ my.third_one = angular.module('third.one', [
  * @param {ui.router.$stateProvider} $stateProvider
  * @ngInject
  */
-my.third_one.configuration = function($stateProvider) {
+my.third.one.module.configuration = function($stateProvider) {
 
   $stateProvider.state('third.one', {
     url: '/one',
@@ -51,6 +51,6 @@ my.third_one.configuration = function($stateProvider) {
 /**
  * Init third.one module.
  */
-my.third_one
-.config(my.third_one.configuration)
-.controller('ThirdOneCtrl', my.third_one_Ctrl);
+my.third.one.module
+.config(my.third.one.module.configuration)
+.controller('ThirdOneCtrl', my.third.one.Ctrl);
