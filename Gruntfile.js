@@ -47,6 +47,7 @@ module.exports = function(grunt) {
           '--angular_pass ' +                                     // inject dependencies automatically
           '--externs closure/externs/angular.js ' +               // angular.d -> angular.module
           '--generate_exports ' +                                 // keep @export notated code
+          '--manage_closure_dependencies ' +
           '--js closure/closure-library/closure/goog/base.js ' +  // don't add 'goog.' stuff to script
           '--js <%= app %> ' +
           '--js <%= states %> ' +
