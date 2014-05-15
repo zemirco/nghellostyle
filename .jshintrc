@@ -19,5 +19,6 @@
     "$": false,
     "$$": false,
     "inject": false
-  }
+  },
+  "expr": true
 }
