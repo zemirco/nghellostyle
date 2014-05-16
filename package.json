@@ -25,6 +25,7 @@
     "grunt-contrib-connect": "^0.7.1",
     "karma-coverage": "^0.2.1",
     "karma-spec-reporter": "0.0.12",
-    "jasmine-spec-reporter": "^0.3.0"
+    "jasmine-spec-reporter": "^0.3.0",
+    "protractor": "^0.22.0"
   }
 }
