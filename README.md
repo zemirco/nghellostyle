@@ -1,6 +1,8 @@
 
 # A radical new approach to developing AngularJS apps
 
+[![Build Status](https://travis-ci.org/zemirco/nghellostyle.svg?branch=master)](https://travis-ci.org/zemirco/nghellostyle)
+
 An AngularJS seed for Google Closure Compiler.
 
 ## Concept
