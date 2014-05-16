@@ -2,4 +2,3 @@
 coverage/
 node_modules/
 compiler.jar
-app.min.js
