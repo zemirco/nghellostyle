@@ -18,6 +18,7 @@ module.exports = function(config) {
       'app/components/**/*.js',
 
       // child states have to be loaded BEFORE parent state or goog.require doesn't work
+      'app/states/*/*-controller.js',
       'app/states/*/*/*.js',
       'app/states/**/*.js',
 
