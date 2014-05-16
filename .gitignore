@@ -1,6 +1,5 @@
 .DS_Store
 coverage/
 node_modules/
-closure-library/
 compiler.jar
 app.min.js
