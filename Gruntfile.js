@@ -44,11 +44,11 @@ module.exports = function(grunt) {
           '--compilation_level ADVANCED_OPTIMIZATIONS ' +
           // '--formatting PRETTY_PRINT ' +
           '--language_in ECMASCRIPT5_STRICT ' +
-          '--angular_pass ' +                                     // inject dependencies automatically
-          '--externs closure/externs/angular.js ' +               // angular.d -> angular.module
-          '--generate_exports ' +                                 // keep @export notated code
+          '--angular_pass ' +                                // inject dependencies automatically
+          '--externs closure/externs/angular.js ' +          // angular.d -> angular.module
+          '--generate_exports ' +                            // keep @export notated code
           '--manage_closure_dependencies ' +
-          '--js closure/closure-library/closure/goog/base.js ' +  // don't add 'goog.' stuff to script
+          '--js closure/library/base.js ' +                  // don't add 'goog.' stuff to script
           '--js <%= app %> ' +
           '--js <%= states %> ' +
           '--js <%= components %> ' +

@@ -12,8 +12,8 @@ module.exports = function(config) {
       'app/js/lib/angular-ui-router.js',
       'app/js/lib/angular-mocks.js',
 
-      'closure/closure-library/closure/goog/base.js',
-      'closure/closure-library/closure/goog/deps.js',
+      'closure/library/base.js',
+      'closure/library/deps.js',
 
       'app/components/**/*.js',
 
