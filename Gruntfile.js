@@ -57,12 +57,12 @@ module.exports = function(grunt) {
 
       // karma
       karma: {
-        command: 'karma start test/unit/karma.conf.js'
+        command: './node_modules/karma/bin/karma start test/unit/karma.conf.js'
       },
 
       // protractor
       protractor: {
-        command: 'protractor test/e2e/protractor.conf.js'
+        command: './node_modules/protractor/bin/protractor test/e2e/protractor.conf.js'
       }
     },
 
