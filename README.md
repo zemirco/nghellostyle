@@ -429,8 +429,9 @@ package.json
 node_modules/
   ...
 closure/
-  closure-library/
-    ...
+  library/
+    base.js
+    deps.js
   externs/
     angular.js
   compiler.jar
@@ -503,16 +504,11 @@ test/
 
 ***Important!***
 
-`closure-library/` (71,9 MB) and `compiler.jar` (6,8 MB)
-are not in this repo. You have to download them manually and place them inside
+`compiler.jar` (6,8 MB)
+is not in this repo. You have to download it manually and place it inside
 the `closure/` directory.
 
 - [Closure Compiler](https://github.com/google/closure-compiler#getting-started)
-- `git clone https://code.google.com/p/closure-library/`
-
-You don't really have to include the whole library in all your projects.
-I think `closure/closure-library/closure/goog/base.js` and
-`closure/closure-library/closure/goog/deps.js` is all we need. Haven't tested it though.
 
 #### 'states' are independent modules
 
