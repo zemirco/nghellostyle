@@ -11,6 +11,7 @@ module.exports = function(config) {
       'app/js/lib/angular.js',
       'app/js/lib/angular-ui-router.js',
       'app/js/lib/angular-mocks.js',
+      'app/js/lib/es5-shim.js',
 
       'closure/library/base.js',
       'closure/library/deps.js',
@@ -33,7 +34,7 @@ module.exports = function(config) {
 
     autoWatch: false,
 
-    browsers: ['Firefox'],
+    browsers: ['Firefox', 'PhantomJS'],
 
     singleRun: true,
 

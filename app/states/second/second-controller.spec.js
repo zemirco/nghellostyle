@@ -1,6 +1,6 @@
 'use strict';
 
-describe('SecondCtrl', function(){
+describe('SecondCtrl', function() {
 
   var window;
   var ctrl;
@@ -28,7 +28,7 @@ describe('SecondCtrl', function(){
     expect(ctrl.info).toEqual('"Info" can be used in the template');
   });
 
-  it('should show an alert window when "say()" is called', function(done) {
+  it('should show an alert window when "say()" is called', function() {
     ctrl.say();
     expect(window.alert).toHaveBeenCalledWith('Hello world!');
   });

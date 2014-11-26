@@ -6,15 +6,14 @@
 goog.provide('my.third.module');
 
 /**
+ * Require controller.
+ */
+goog.require('my.third.Ctrl');
+/**
  * Require child states.
  */
 goog.require('my.third.one.module');
 goog.require('my.third.two.module');
-
-/**
- * Require controller.
- */
-goog.require('my.third.Ctrl');
 
 
 

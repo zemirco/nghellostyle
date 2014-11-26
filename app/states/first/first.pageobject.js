@@ -2,6 +2,8 @@
 
 /**
  * Create Page Object for protractor e2e tests.
+ *
+ * @constructor
  */
 
 var First = function() {
@@ -21,4 +23,7 @@ var First = function() {
 
 };
 
+/**
+ * Exports an instange of the first page object
+ */
 module.exports = new First();

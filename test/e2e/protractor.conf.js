@@ -11,13 +11,16 @@ exports.config = {
     'browserName': 'firefox'
   },
 
-  baseUrl: 'http://localhost:8000/',
+  baseUrl: 'http://localhost:8001/',
 
   framework: 'jasmine',
 
   onPrepare: function() {
-      require('jasmine-spec-reporter');
-      jasmine.getEnv().addReporter(new jasmine.SpecReporter());
+      var SpecReporter = require('jasmine-spec-reporter');
+      // add jasmine spec reporter
+      jasmine.getEnv().addReporter(new SpecReporter({
+        displayStacktrace: true
+      }));
    }
 
 };

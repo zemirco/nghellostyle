@@ -5,6 +5,7 @@ goog.provide('my.version.Directive.factory');
 /**
  * A directive that displays the current version.
  *
+ * @param {angular.Service} version
  * @constructor
  */
 my.version.Directive = function(version) {

@@ -3,7 +3,7 @@
 /**
  * Karma unit tests.
  */
-describe('FirstCtrl', function(){
+describe('FirstCtrl', function() {
 
   var ctrl;
 
