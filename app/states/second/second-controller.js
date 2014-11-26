@@ -15,10 +15,7 @@ goog.provide('my.second.Ctrl');
  * services in a minification safe way.
  *
  * @example
-
-   Ctrl.$inject = ['$window'];
-
- *
+ * Ctrl.$inject = ['$window'];
  *
  * @param {angular.$window} $window
  * @constructor
@@ -58,10 +55,7 @@ my.second.Ctrl = function($window) {
  * Method has to be exported to be used inside a template.
  *
  * @example
-
-   <button ng-click="second.say()">say something</button>
-
- *
+ * <button ng-click="second.say()">say something</button>
  *
  * @export
  */

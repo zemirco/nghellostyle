@@ -28,9 +28,16 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
-          port: 8000,
           base: 'app',
+          port: 8000,
           keepalive: true
+        }
+      },
+      e2e: {
+        options: {
+          base: 'app',
+          port: 8001,
+          keepalive: false
         }
       }
     },
@@ -72,7 +79,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['shell:min']);
-  grunt.registerTask('protractor', ['shell:protractor']);
+  grunt.registerTask('server', ['connect:server']);
+  grunt.registerTask('protractor', ['connect:e2e', 'shell:protractor']);
   grunt.registerTask('karma', ['shell:karma']);
 
 };

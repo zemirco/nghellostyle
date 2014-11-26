@@ -683,7 +683,7 @@ describe('first', function() {
 - start the local server
 
   ```bash
-  grunt connect
+  grunt server
   ```
 
 - start protractor

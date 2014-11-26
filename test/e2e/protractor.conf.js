@@ -7,17 +7,22 @@ exports.config = {
     '../../app/states/**/*.scenario.js'
   ],
 
-  capabilities: {
+  multiCapabilities: [{
+    'browserName': 'chrome'
+  }, {
     'browserName': 'firefox'
-  },
+  }],
 
   baseUrl: 'http://localhost:8000/',
 
   framework: 'jasmine',
 
   onPrepare: function() {
-      require('jasmine-spec-reporter');
-      jasmine.getEnv().addReporter(new jasmine.SpecReporter());
+      var SpecReporter = require('jasmine-spec-reporter');
+      // add jasmine spec reporter
+      jasmine.getEnv().addReporter(new SpecReporter({
+        displayStacktrace: true
+      }));
    }
 
 };

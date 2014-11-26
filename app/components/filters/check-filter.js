@@ -27,6 +27,7 @@ my.check.Filter.factory = function() {
  * Convert truthy and falsy values to unicode symbols.
  *
  * @param {string} input
+ * @return {string} Converted value
  */
 my.check.Filter.prototype.convert = function(input) {
   return input ? this.checkmark : this.cross;
