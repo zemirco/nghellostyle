@@ -7,13 +7,11 @@ exports.config = {
     '../../app/states/**/*.scenario.js'
   ],
 
-  multiCapabilities: [{
-    'browserName': 'chrome'
-  }, {
+  capabilities: {
     'browserName': 'firefox'
-  }],
+  },
 
-  baseUrl: 'http://localhost:8000/',
+  baseUrl: 'http://localhost:8001/',
 
   framework: 'jasmine',
 
