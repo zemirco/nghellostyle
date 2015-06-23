@@ -17,7 +17,7 @@ my.third.two.Ctrl = function() {
 
   /**
    * @type {String}
-   * @expose
+   * @nocollapse
    */
   this.label = 'some other label from third.two controller';
 

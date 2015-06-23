@@ -6,7 +6,6 @@
 goog.provide('my.third.Ctrl');
 
 
-
 /**
  * Third controller.
  *
@@ -17,12 +16,11 @@ my.third.Ctrl = function() {
 
   /**
    * @type {String}
-   * @expose
+   * @nocollapse
    */
   this.label = 'some label from third controller';
 
 };
-
 
 
 /**

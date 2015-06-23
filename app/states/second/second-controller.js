@@ -39,7 +39,7 @@ my.second.Ctrl = function($window) {
    * `info` can be used in template because it is exposed.
    *
    * @type {String}
-   * @expose
+   * @nocollapse
    */
   this.info = '"Info" can be used in the template';
 
