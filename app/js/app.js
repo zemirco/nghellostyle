@@ -9,21 +9,6 @@ goog.require('my.version.Service');
 goog.require('my.check.Filter.factory');
 
 /**
- * Main app.
- */
-angular.module('app', [
-  'ui.router',
-  my.first.module.name,
-  my.second.module.name,
-  // my.third.module includes child states `third.one` and `third.two`
-  my.third.module.name
-])
-.config(config)
-.directive('version', my.version.Directive.factory)
-.service('version', my.version.Service)
-.filter('check', my.check.Filter.factory);
-
-/**
  * Configuration function.
  *
  * @param {ui.router.$stateProvider} $stateProvider
@@ -31,7 +16,26 @@ angular.module('app', [
  * @ngInject
  */
 function config($stateProvider, $urlRouterProvider) {
-
   $urlRouterProvider.otherwise('/first');
-
 }
+
+
+/**
+ * Main app.
+ * Manual bootstrap necessary for uncompiled code to work.
+ */
+angular.element(document).ready(function() {
+  angular.module('app', [
+    'ui.router',
+    my.first.module.name,
+    my.second.module.name,
+    // my.third.module includes child states `third.one` and `third.two`
+    my.third.module.name
+  ])
+  .config(config)
+  .directive('version', my.version.Directive.factory)
+  .service('version', my.version.Service)
+  .filter('check', my.check.Filter.factory);
+
+  angular.bootstrap(document, ['app']);
+});

@@ -155,7 +155,7 @@ from Google says that
 
 > if you are using @export for properties, you will need to add the flags:
 
->  
+>
 ```
 --remove_unused_prototype_props_in_externs = false
 --export_local_property_definitions
@@ -663,6 +663,11 @@ describe('first', function() {
 ```
 
 #### Grunt shell instead multiple plugins
+
+Install Grunt:
+```shell
+sudo npm install -g grunt-cli
+```
 
 - Why do you use grunt (or gulp or any other build tool)? Why no plain `npm`?
 
