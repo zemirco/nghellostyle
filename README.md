@@ -703,7 +703,7 @@ creates `app.min.js` in `app/js/`.
 ## References
 
 - [Best Practice Recommendations for Angular App Structure](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
-- [An AngularJS Style Guide for Closure Users at Google](https://google-styleguide.googlecode.com/svn/trunk/angularjs-google-style.html)
+- [An AngularJS Style Guide for Closure Users at Google](https://google.github.io/styleguide/angularjs-google-style.html)
 - [Using AngularJS at Google with Rhys Bret Bowen](http://www.funnyant.com/using-angularjs-at-google-with-rhys-bret-bowen/)
 - [AngularJS 1.1.5 + Google Closure Library + Closure Compiler experiment](https://gist.github.com/crhym3/5822385)
 - [AngularJS utils min](https://github.com/angular/angular.js/blob/master/lib/grunt/utils.js#L201)
